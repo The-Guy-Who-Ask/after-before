@@ -1,0 +1,105 @@
+.container{
+    width: 20em;
+    height: 20em;
+    background: blue;
+    display: flex;
+    border-radius: 2em;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: white;
+}
+.container::before{
+    content: "";
+    background: #000;
+    top: 9em;
+    bottom: 9em;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    transform: translateX(100%);
+}
+.container::after{
+    content: "";
+    background: #000;
+    top: 0em;
+    bottom: 0em;
+    left: 8em;
+    right: 8em;
+    z-index: -1;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    transform: translateY(-100%);
+}
+h1::after{
+    content: "";
+    background: #000;
+    top: 0em;
+    bottom: 0em;
+    left: 4em;
+    right: 4em;
+    z-index: -1;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    transform: rotate(45deg) translate(120%, -150%);
+}
+h1::before{
+    content: "";
+    background: #000;
+    top: 4em;
+    bottom: 4em;
+    left: 0em;
+    right: 0em;
+    z-index: -1;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    /* transform: rotate(45deg) translate(120%, -150%); */
+    transform: rotate(45deg) translate(-120%, -100%);
+}
+.container:hover::before, .container:hover::after, .container:hover  h1::after, .container:hover  h1::before{
+    transform: translate(0);
+    transition: all 1s ease-in-out;
+    animation: groot 4s alternate ease-in-out infinite;
+}
+.container:hover  h1::after, .container:hover  h1::before{
+    transform:  rotate(45deg);
+}
+@keyframes groot {
+    10%{
+        transform: translate(0);
+    }
+    40%{
+        border-radius: 10em;
+        transform: translate(0);
+        background: blue;
+        top: 3em;
+        border: 0.5em solid black;
+        bottom: 3em;
+        left: 3em;
+        right: 3em;
+    }
+    70%{
+        border: 1em black solid;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: blue;
+    }
+    90%{
+        border: 1em black solid;
+        top: 0;
+        bottom: 0;
+        border-radius: 2em;
+        left: 0;
+        right: 0;
+        background-color: blue;
+    }
+    95%, 100%{
+        display: none;
+    }
+}
