@@ -75,7 +75,7 @@ h1::before{
     40%{
         border-radius: 10em;
         transform: translate(0);
-        background: blue;
+        background: black;
         top: 3em;
         border: 0.5em solid black;
         bottom: 3em;
@@ -88,7 +88,10 @@ h1::before{
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: blue;
+        background-color: black;
+    }
+    80%{
+        background: blue;
     }
     90%{
         border: 1em black solid;
